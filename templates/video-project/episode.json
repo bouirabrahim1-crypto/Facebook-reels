@@ -9,6 +9,11 @@
   },
   "scenes": [
     {
+      "id": "brand_intro",
+      "footage": "../../templates/intro/intro.mp4",
+      "duration": 3.0
+    },
+    {
       "id": "hook",
       "footage": "assets/footage/hook.mp4",
       "audio": "assets/voiceover/hook.wav",

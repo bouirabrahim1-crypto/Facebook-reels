@@ -38,7 +38,7 @@
 
 استعمال `templates/video-project/episode.json` مع نظام المشاريع المحلي (`app/services/video_project`، انظر `docs/video-projects.md`) لتجميع المشاهد، أو خط التوليد العام للمشروع حسب الحالة.
 
-**إلزامي:** إضافة العلامة المائية طوال الفيديو وإلحاق `templates/outro/outro.mp4` في النهاية — الأوامر الجاهزة في `brand/templates/APPLY_BRANDING.md`.
+**إلزامي:** إلحاق `templates/intro/intro.mp4` فالبداية، إضافة العلامة المائية طوال المحتوى الرئيسي، وإلحاق `templates/outro/outro.mp4` فالنهاية — الأوامر الجاهزة في `brand/templates/APPLY_BRANDING.md`.
 
 ## 10. المعاينة الداخلية
 

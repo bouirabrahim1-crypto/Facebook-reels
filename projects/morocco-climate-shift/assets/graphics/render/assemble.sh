@@ -31,15 +31,20 @@ ffmpeg -y -i "$RENDERS/body.mp4" -i "$PROJ/../../brand/assets/sy-watermark.png" 
   -filter_complex "[1:v]scale=160:160[wm];[0:v][wm]overlay=W-w-50:H-h-120" \
   -c:a copy "$RENDERS/branded_body.mp4"
 
-echo "== 3/3: append outro =="
+echo "== 3/4: append outro =="
 ffmpeg -y -i "$PROJ/../../templates/outro/outro.mp4" -f lavfi -i "anullsrc=channel_layout=stereo:sample_rate=48000" \
   -c:v copy -c:a aac -shortest -t 3.5 "$RENDERS/outro_with_audio.mp4"
 
-ffmpeg -y -i "$RENDERS/branded_body.mp4" -i "$RENDERS/outro_with_audio.mp4" \
+echo "== 4/4: prepend intro, concat all, append outro =="
+ffmpeg -y -i "$PROJ/../../templates/intro/intro.mp4" -f lavfi -i "anullsrc=channel_layout=stereo:sample_rate=48000" \
+  -c:v copy -c:a aac -shortest -t 3.0 "$RENDERS/intro_with_audio.mp4"
+
+ffmpeg -y -i "$RENDERS/intro_with_audio.mp4" -i "$RENDERS/branded_body.mp4" -i "$RENDERS/outro_with_audio.mp4" \
   -filter_complex "\
 [0:v]format=yuv420p[v0];[0:a]aformat=sample_rates=48000:channel_layouts=stereo[a0];\
 [1:v]format=yuv420p[v1];[1:a]aformat=sample_rates=48000:channel_layouts=stereo[a1];\
-[v0][a0][v1][a1]concat=n=2:v=1:a=1[outv][outa]" \
+[2:v]format=yuv420p[v2];[2:a]aformat=sample_rates=48000:channel_layouts=stereo[a2];\
+[v0][a0][v1][a1][v2][a2]concat=n=3:v=1:a=1[outv][outa]" \
   -map "[outv]" -map "[outa]" -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac \
   "$RENDERS/final_video.mp4"
 

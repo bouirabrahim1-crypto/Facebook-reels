@@ -13,7 +13,8 @@
 ## معتمد نهائياً — إلزامي لكل فيديو (لا يُعاد السؤال عنه)
 
 - **الشعار والرمز SY**: `brand/assets/sy-monogram.svg`, `sy-logo-full.svg` — معتمدان.
-- **العلامة المائية**: `brand/assets/sy-watermark.png` — تُضاف فوق كل فيديو طوال مدته (ما عدا الافتتاحية/الخاتمة الكاملة).
+- **الدخلة الموحدة**: `templates/intro/intro.mp4` (مرندرة فعلياً من `brand/assets/sy-intro-source.png`، 1080×1920، 3 ثوانٍ) — تُلحق في بداية كل فيديو، قبل مشهد الخطاف.
+- **العلامة المائية**: `brand/assets/sy-watermark.png` — تُضاف فوق المحتوى الرئيسي طوال مدته (ما عدا الدخلة والخاتمة الكاملتين).
 - **الخاتمة الموحدة**: `templates/outro/outro.mp4` (مرندرة فعلياً، 1080×1920، 3.5 ثوانٍ) — تُلحق في آخر كل فيديو.
 - طريقة التطبيق والأوامر الجاهزة (ffmpeg): `brand/templates/APPLY_BRANDING.md`.
 - أي مشروع فيديو جديد يطبّق هذا تلقائياً ضمن مرحلة التجميع النهائي (`workflow/VIDEO_WORKFLOW.md`)، ولا يُعتبر جاهزاً للنشر بدونه (`workflow/PUBLISHING.md`).
@@ -30,6 +31,7 @@
 | `brand/templates/APPLY_BRANDING.md` | أوامر ffmpeg جاهزة لإضافة العلامة المائية وإلحاق الخاتمة — إلزامي لكل فيديو |
 | `templates/video-project/` | قالب مجلد مشروع فيديو جديد (سكريبت، مصادر، تحقق، episode.json، أصول) |
 | `templates/thumbnail/` | قالب الصورة المصغرة |
+| `templates/intro/` | الدخلة الموحدة المعتمدة (`intro.mp4`) ومصدرها |
 | `templates/outro/` | قالب وستوري بورد الخاتمة الموحدة |
 | `workflow/VIDEO_WORKFLOW.md` | مراحل العمل من الفكرة إلى النشر |
 | `workflow/FACT_CHECK.md` | قواعد التحقق من المعلومات |

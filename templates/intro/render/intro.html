@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0;width:1080px;height:1920px;background:#070D1A;overflow:hidden}
+  img{width:1080px;height:1920px;display:block;opacity:0}
+</style></head>
+<body>
+  <img id="frame" src="../intro_frame.png">
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function setTime(t){
+    const img = document.getElementById('frame');
+    const fadeIn = ease(clamp01((t-0.1)/0.5));
+    const fadeOut = 1 - ease(clamp01((t-2.5)/0.5));
+    img.style.opacity = Math.min(fadeIn, fadeOut);
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>
