@@ -1,0 +1,16 @@
+<svg width="900" height="500" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Data card template — for displaying a statistic / figure during a documentary scene.
+       Replace {{VALUE}}, {{LABEL}}, {{SOURCE}} tokens per use. -->
+  <rect width="900" height="500" fill="#0B1426" rx="18"/>
+  <rect x="0" y="0" width="14" height="500" fill="#C9A54C" rx="7"/>
+
+  <text x="450" y="230" font-family="Montserrat, Arial, sans-serif" font-weight="700"
+        font-size="140" fill="#E6C77A" text-anchor="middle">{{VALUE}}</text>
+
+  <text x="450" y="300" font-family="Cairo, Arial, sans-serif" font-weight="600"
+        font-size="40" fill="#E8ECF1" text-anchor="middle">{{LABEL}}</text>
+
+  <line x1="80" y1="400" x2="820" y2="400" stroke="#C0C7D1" stroke-width="1" opacity="0.3"/>
+  <text x="450" y="440" font-family="IBM Plex Sans Arabic, Arial, sans-serif" font-weight="400"
+        font-size="22" fill="#C0C7D1" text-anchor="middle">المصدر: {{SOURCE}}</text>
+</svg>

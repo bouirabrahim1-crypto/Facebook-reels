@@ -1,0 +1,39 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    قالب الصورة المصغرة (Thumbnail) — SKAMS YAMS
+    استعمال: نسخ هذا الملف داخل مشروع الفيديو الجديد، ثم تعويض الحقول:
+      {{TITLE_LINE_1}}  — السطر الأول من العنوان (قصير وقوي)
+      {{TITLE_LINE_2}}  — السطر الثاني (اختياري)
+      {{VISUAL_PLACEHOLDER}} — تعويض بـ <image> حقيقية لصورة/مشهد يعبر عن موضوع الفيديو
+    قواعد: عنوان عربي واضح، تباين قوي، رمز SY متوازن، بدون حشو بالنصوص.
+  -->
+  <defs>
+    <linearGradient id="overlay" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#070D1A" stop-opacity="0.15"/>
+      <stop offset="60%" stop-color="#070D1A" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#070D1A" stop-opacity="0.92"/>
+    </linearGradient>
+  </defs>
+
+  <!-- خلفية مؤقتة: تُستبدل بصورة حقيقية ذات علاقة بموضوع الفيديو -->
+  <rect width="1080" height="1920" fill="#0B1426"/>
+  <text x="540" y="960" font-family="Montserrat, Arial, sans-serif" font-size="30"
+        fill="#C0C7D1" text-anchor="middle" opacity="0.4">{{VISUAL_PLACEHOLDER}}</text>
+
+  <rect width="1080" height="1920" fill="url(#overlay)"/>
+
+  <!-- العنوان -->
+  <text x="70" y="1660" font-family="Cairo, Arial, sans-serif" font-weight="800"
+        font-size="86" fill="#E8ECF1">{{TITLE_LINE_1}}</text>
+  <text x="70" y="1750" font-family="Cairo, Arial, sans-serif" font-weight="800"
+        font-size="86" fill="#E6C77A">{{TITLE_LINE_2}}</text>
+
+  <!-- رمز SY -->
+  <g transform="translate(900,80)">
+    <circle cx="60" cy="60" r="55" fill="none" stroke="#C0C7D1" stroke-width="2" opacity="0.6"/>
+    <text x="45" y="78" font-family="Montserrat, Arial, sans-serif" font-weight="700"
+          font-size="55" fill="#C9A54C" text-anchor="middle">S</text>
+    <text x="78" y="78" font-family="Montserrat, Arial, sans-serif" font-weight="700"
+          font-size="55" fill="#C0C7D1" text-anchor="middle">Y</text>
+  </g>
+</svg>

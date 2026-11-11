@@ -1,0 +1,14 @@
+<svg width="900" height="300" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Source / reference card template — shown briefly to cite a claim.
+       Replace {{CLAIM}}, {{SOURCE_NAME}}, {{DATE}} tokens per use. -->
+  <rect width="900" height="300" fill="#070D1A" rx="14"/>
+  <rect x="0" y="0" width="900" height="300" fill="none" stroke="#C0C7D1" stroke-width="1" opacity="0.25" rx="14"/>
+
+  <text x="60" y="80" font-family="IBM Plex Sans Arabic, Arial, sans-serif" font-weight="400"
+        font-size="26" fill="#E8ECF1">{{CLAIM}}</text>
+
+  <text x="60" y="220" font-family="Cairo, Arial, sans-serif" font-weight="700"
+        font-size="24" fill="#C9A54C">{{SOURCE_NAME}}</text>
+  <text x="60" y="255" font-family="IBM Plex Sans Arabic, Arial, sans-serif" font-weight="300"
+        font-size="18" fill="#C0C7D1">تاريخ الاطلاع: {{DATE}}</text>
+</svg>

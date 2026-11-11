@@ -1,0 +1,54 @@
+{
+  "project_id": "{{project-slug}}",
+  "settings": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "narration_volume": 1.0,
+    "bgm_volume": 0.15
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "footage": "assets/footage/hook.mp4",
+      "audio": "assets/voiceover/hook.wav",
+      "narration": "{{HOOK}}"
+    },
+    {
+      "id": "intro",
+      "footage": "assets/footage/intro.mp4",
+      "audio": "assets/voiceover/intro.wav",
+      "narration": "{{INTRO}}"
+    },
+    {
+      "id": "context",
+      "footage": "assets/footage/context.mp4",
+      "audio": "assets/voiceover/context.wav",
+      "narration": "{{CONTEXT}}"
+    },
+    {
+      "id": "facts",
+      "footage": "assets/footage/facts.mp4",
+      "audio": "assets/voiceover/facts.wav",
+      "narration": "{{FACTS}}"
+    },
+    {
+      "id": "analysis",
+      "footage": "assets/footage/analysis.mp4",
+      "audio": "assets/voiceover/analysis.wav",
+      "narration": "{{ANALYSIS}}"
+    },
+    {
+      "id": "conclusion",
+      "footage": "assets/footage/conclusion.mp4",
+      "audio": "assets/voiceover/conclusion.wav",
+      "narration": "{{CONCLUSION}}"
+    },
+    {
+      "id": "outro",
+      "footage": "../../templates/outro/outro.mp4",
+      "duration": 3.5
+    }
+  ],
+  "bgm": "assets/footage/bgm.mp3"
+}

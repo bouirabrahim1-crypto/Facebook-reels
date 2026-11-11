@@ -1,0 +1,10 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Silver watermark version, ~55% opacity, transparent background, for overlay on video footage -->
+  <g opacity="0.55">
+    <circle cx="100" cy="100" r="75" fill="none" stroke="#C0C7D1" stroke-width="2"/>
+    <text x="75" y="128" font-family="Montserrat, Arial, sans-serif" font-weight="700"
+          font-size="95" fill="#C0C7D1" text-anchor="middle">S</text>
+    <text x="128" y="128" font-family="Montserrat, Arial, sans-serif" font-weight="700"
+          font-size="95" fill="#E8ECF1" text-anchor="middle">Y</text>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <!-- لقطة الخاتمة الموحدة (Outro) — SKAMS YAMS — الإطار الأخير بعد انتهاء الحركة -->
+  <rect width="1080" height="1920" fill="#070D1A"/>
+
+  <!-- رمز SY في الوسط -->
+  <g transform="translate(390,650)">
+    <circle cx="150" cy="150" r="140" fill="none" stroke="#C0C7D1" stroke-width="2" opacity="0.55"/>
+    <text x="112" y="200" font-family="Montserrat, Arial, sans-serif" font-weight="700"
+          font-size="160" fill="#C9A54C" text-anchor="middle">S</text>
+    <text x="200" y="200" font-family="Montserrat, Arial, sans-serif" font-weight="700"
+          font-size="160" fill="#C0C7D1" text-anchor="middle">Y</text>
+  </g>
+
+  <!-- اسم البراند -->
+  <text x="540" y="1120" font-family="Montserrat, Arial, sans-serif" font-weight="700"
+        font-size="56" letter-spacing="3" fill="#E8ECF1" text-anchor="middle">SKAMS YAMS</text>
+
+  <!-- العبارة الرسمية -->
+  <text x="540" y="1180" font-family="Cairo, Arial, sans-serif" font-weight="400"
+        font-size="30" fill="#C0C7D1" text-anchor="middle">انظر أبعد... افهم أكثر</text>
+
+  <!-- مساحة فارغة محجوزة لحسابات التواصل الاجتماعي (تُضاف لاحقاً) -->
+  <rect x="290" y="1280" width="500" height="80" fill="none" stroke="#C0C7D1" stroke-width="1"
+        stroke-dasharray="6,6" opacity="0.25"/>
+  <text x="540" y="1328" font-family="IBM Plex Sans Arabic, Arial, sans-serif" font-size="18"
+        fill="#C0C7D1" text-anchor="middle" opacity="0.4">مساحة حسابات التواصل الاجتماعي (تُضاف لاحقاً)</text>
+</svg>
