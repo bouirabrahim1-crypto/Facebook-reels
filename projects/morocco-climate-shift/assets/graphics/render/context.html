@@ -1,0 +1,43 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  .chips{display:flex;flex-direction:column;gap:28px;margin:40px 0}
+  .chip{
+    border:1px solid rgba(192,199,209,0.35);border-radius:16px;padding:22px 40px;
+    font-weight:700;font-size:40px;color:var(--fg);opacity:0;background:var(--navy2);
+  }
+  .chip .dot{color:var(--gold);margin-left:14px}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">السياق</div>
+    <div class="headline" id="title" style="font-size:54px;margin-top:20px">المغرب يقع بين ثلاثة أنظمة مناخية</div>
+    <div class="chips">
+      <div class="chip" id="c1"><span class="dot">●</span>الصحراء الجافة</div>
+      <div class="chip" id="c2"><span class="dot">●</span>البحر الأبيض المتوسط</div>
+      <div class="chip" id="c3"><span class="dot">●</span>المحيط الأطلسي</div>
+    </div>
+    <div class="body-text" id="tail" style="font-size:38px">ما يجعل طقسه متقلباً بطبيعته</div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.1, 0.4);
+    fadeUp(document.getElementById('title'), t, 0.5, 0.5);
+    fadeUp(document.getElementById('c1'), t, 1.6, 0.4);
+    fadeUp(document.getElementById('c2'), t, 2.6, 0.4);
+    fadeUp(document.getElementById('c3'), t, 3.6, 0.4);
+    fadeUp(document.getElementById('tail'), t, 5.3, 0.5);
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">السؤال</div>
+    <div class="rule" id="rule"></div>
+    <div class="headline" id="headline">هل أصبح مناخ المغرب أكثر تطرفاً من أي وقت مضى؟</div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function setTime(t){
+    const eyebrow = document.getElementById('eyebrow');
+    const rule = document.getElementById('rule');
+    const headline = document.getElementById('headline');
+    eyebrow.style.opacity = ease(clamp01((t-0.1)/0.5));
+    rule.style.opacity = ease(clamp01((t-0.5)/0.4));
+    rule.style.transform = 'scaleX(' + (0.3 + 0.7*ease(clamp01((t-0.5)/0.4))) + ')';
+    const hp = ease(clamp01((t-0.9)/0.6));
+    headline.style.opacity = hp;
+    headline.style.transform = 'translateY(' + (16 - 16*hp) + 'px)';
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

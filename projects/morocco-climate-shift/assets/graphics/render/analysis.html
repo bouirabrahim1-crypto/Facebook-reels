@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  .caveat{
+    margin-top:50px;border:1px dashed rgba(192,199,209,0.4);border-radius:16px;
+    padding:26px 36px;font-size:32px;color:var(--muted);opacity:0;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">تحليل</div>
+    <div class="headline" id="headline" style="font-size:60px;margin-top:30px">
+      علماء المناخ يربطون بين هذا التذبذب وارتفاع حرارة الأرض عالمياً
+    </div>
+    <div class="caveat" id="caveat">⚠ لا دراسة دقيقة بعد تحسم الأمر بشكل كامل</div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.1, 0.4);
+    fadeUp(document.getElementById('headline'), t, 0.6, 0.6);
+    fadeUp(document.getElementById('caveat'), t, 6.5, 0.6);
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

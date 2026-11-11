@@ -1,0 +1,61 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  .fact{position:absolute;top:0;left:0;width:1080px;height:1920px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
+  .fact .card{opacity:1}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow" style="position:absolute;top:140px">الوقائع</div>
+
+    <div class="fact" id="f1">
+      <div class="card">
+        <div class="value">85%</div>
+        <div class="label">من سكان القصر الكبير أُخلوا</div>
+        <div class="date">فيضان نهر اللوكوس — فبراير 2026</div>
+      </div>
+    </div>
+
+    <div class="fact" id="f2">
+      <div class="card">
+        <div class="value" style="color:var(--alert)">37</div>
+        <div class="label">قتيلاً في فيضانات آسفي</div>
+        <div class="date">بيان وزارة الداخلية — دجنبر 2025</div>
+      </div>
+    </div>
+
+    <div class="fact" id="f3">
+      <div class="card">
+        <div class="value">°42.5</div>
+        <div class="label">أعلى حرارة في تاريخ آسفي</div>
+        <div class="date">رقم قياسي جديد — ماي 2026</div>
+      </div>
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  const SEGS = [[0.3,8.1],[8.3,16.2],[16.4,24.504]];
+  function segOpacity(t, seg){
+    const [a,b] = seg;
+    const fadeIn = ease(clamp01((t-a)/0.4));
+    const fadeOut = 1 - ease(clamp01((t-(b-0.4))/0.4));
+    if (t < a || t > b) return 0;
+    return Math.min(fadeIn, fadeOut);
+  }
+  function setTime(t){
+    document.getElementById('eyebrow').style.opacity = ease(clamp01(t/0.4));
+    const ids = ['f1','f2','f3'];
+    ids.forEach((id,i) => {
+      const el = document.getElementById(id);
+      const o = segOpacity(t, SEGS[i]);
+      el.style.opacity = o;
+      el.style.transform = 'scale(' + (0.97 + 0.03*o) + ')';
+    });
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

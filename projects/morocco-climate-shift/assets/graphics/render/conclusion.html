@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+  <div class="stage">
+    <div class="headline" id="headline" style="font-size:64px">
+      المغرب لم يعد بلداً جافاً أو ممطراً بثبات...<br>
+      <span style="color:var(--gold2)">بل صار يتأرجح بين طرفين متطرفين</span>
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function setTime(t){
+    const el = document.getElementById('headline');
+    const p = ease(clamp01((t-0.2)/0.8));
+    el.style.opacity = p;
+    el.style.transform = 'scale(' + (0.97 + 0.03*p) + ')';
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>
