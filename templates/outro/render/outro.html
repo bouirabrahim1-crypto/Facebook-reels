@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    src: url('fonts/Montserrat-Bold.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Cairo';
+    font-weight: 400;
+    src: url('fonts/Cairo-Regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Cairo';
+    font-weight: 700;
+    src: url('fonts/Cairo-Bold.ttf') format('truetype');
+  }
+  html,body{margin:0;padding:0;background:#070D1A;width:1080px;height:1920px;overflow:hidden}
+  *{box-sizing:border-box}
+  .stage{
+    position:relative;width:1080px;height:1920px;background:#070D1A;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+    font-family:'Montserrat','Arial',sans-serif;
+  }
+  .ring{
+    width:280px;height:280px;border-radius:50%;
+    border:3px solid #C0C7D1;opacity:0;
+    display:flex;align-items:center;justify-content:center;
+    transform:scale(0.95);
+  }
+  .ring .sy{font-weight:700;font-size:170px;display:flex}
+  .ring .s{color:#C9A54C}
+  .ring .y{color:#C0C7D1}
+  .name{
+    font-weight:700;font-size:62px;letter-spacing:4px;color:#E8ECF1;
+    opacity:0;transform:translateY(10px);
+  }
+  .tag{
+    font-family:'Cairo','Arial',sans-serif;font-weight:400;font-size:32px;color:#C0C7D1;
+    opacity:0;direction:rtl;
+  }
+  .social{
+    width:500px;height:80px;border:2px dashed #C0C7D1;opacity:0;border-radius:8px;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="ring" id="ring"><span class="sy"><span class="s">S</span><span class="y">Y</span></span></div>
+    <div class="name" id="name">SKAMS YAMS</div>
+    <div class="tag" id="tag">انظر أبعد... افهم أكثر</div>
+    <div class="social" id="social"></div>
+  </div>
+<script>
+  // Sets opacity/transform for a given time t (seconds), matching OUTRO_STORYBOARD.md
+  function easeOut(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+
+  function setTime(t){
+    const ring = document.getElementById('ring');
+    const name = document.getElementById('name');
+    const tag = document.getElementById('tag');
+    const social = document.getElementById('social');
+
+    // ring: 0.6s -> 1.6s fade in + scale 0.95 -> 1.0
+    const ringP = easeOut(clamp01((t - 0.6) / 1.0));
+    ring.style.opacity = ringP;
+    ring.style.transform = 'scale(' + (0.95 + 0.05*ringP) + ')';
+
+    // name: 1.6s -> 2.4s fade in + rise
+    const nameP = easeOut(clamp01((t - 1.6) / 0.8));
+    name.style.opacity = nameP;
+    name.style.transform = 'translateY(' + (10 - 10*nameP) + 'px)';
+
+    // tag: 2.4s -> 3.0s fade in
+    const tagP = easeOut(clamp01((t - 2.4) / 0.6));
+    tag.style.opacity = tagP;
+
+    // social placeholder: fades in with tag, stays subtle
+    social.style.opacity = 0.35 * tagP;
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body>
+</html>
