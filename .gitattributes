@@ -1,6 +1,5 @@
 # Auto detect text files and normalize line endings in the repository
 * text=auto
-
 # Binary assets
 *.mp3 binary
 *.mp4 binary
@@ -14,3 +13,5 @@
 *.otf binary
 *.woff binary
 *.woff2 binary
+resource/fonts/*.ttc filter=lfs diff=lfs merge=lfs -text
+resource/fonts/*.ttf filter=lfs diff=lfs merge=lfs -text
