@@ -1,8 +1,13 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
+<style>
+  #bgimg{filter:sepia(0.25) saturate(1.3) hue-rotate(-8deg) brightness(0.8)}
+</style>
 </head>
 <body>
+  <div class="bg-wrap"><img id="bgimg" src="images/orange_sun.jpg"></div>
+  <div class="scrim"></div>
   <div class="stage">
     <div class="headline" id="headline" style="font-size:64px">
       المغرب لم يعد بلداً جافاً أو ممطراً بثبات...<br>
@@ -17,6 +22,7 @@
     const p = ease(clamp01((t-0.2)/0.8));
     el.style.opacity = p;
     el.style.transform = 'scale(' + (0.97 + 0.03*p) + ')';
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/7.512)) + ')';
   }
   window.__setTime = setTime;
   setTime(0);

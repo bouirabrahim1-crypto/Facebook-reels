@@ -1,8 +1,13 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
+<style>
+  .bg img{transform:scale(1.0)}
+</style>
 </head>
 <body>
+  <div class="bg-wrap"><img id="bgimg" src="images/sahara_dunes.jpg"></div>
+  <div class="scrim"></div>
   <div class="stage">
     <div class="eyebrow" id="eyebrow">السؤال</div>
     <div class="rule" id="rule"></div>
@@ -21,6 +26,7 @@
     const hp = ease(clamp01((t-0.9)/0.6));
     headline.style.opacity = hp;
     headline.style.transform = 'translateY(' + (16 - 16*hp) + 'px)';
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/4.728)) + ')';
   }
   window.__setTime = setTime;
   setTime(0);

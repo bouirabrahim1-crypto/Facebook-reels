@@ -5,12 +5,15 @@
   .chips{display:flex;flex-direction:column;gap:28px;margin:40px 0}
   .chip{
     border:1px solid rgba(192,199,209,0.35);border-radius:16px;padding:22px 40px;
-    font-weight:700;font-size:40px;color:var(--fg);opacity:0;background:var(--navy2);
+    font-weight:700;font-size:40px;color:var(--fg);opacity:0;background:rgba(11,20,38,0.78);
+    backdrop-filter:blur(2px);
   }
   .chip .dot{color:var(--gold);margin-left:14px}
 </style>
 </head>
 <body>
+  <div class="bg-wrap"><img id="bgimg" src="images/flood_ourika.jpg"></div>
+  <div class="scrim"></div>
   <div class="stage">
     <div class="eyebrow" id="eyebrow">السياق</div>
     <div class="headline" id="title" style="font-size:54px;margin-top:20px">المغرب يقع بين ثلاثة أنظمة مناخية</div>
@@ -36,6 +39,7 @@
     fadeUp(document.getElementById('c2'), t, 2.6, 0.4);
     fadeUp(document.getElementById('c3'), t, 3.6, 0.4);
     fadeUp(document.getElementById('tail'), t, 5.3, 0.5);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/9.072)) + ')';
   }
   window.__setTime = setTime;
   setTime(0);

@@ -2,36 +2,41 @@
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
 <style>
-  .fact{position:absolute;top:0;left:0;width:1080px;height:1920px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
-  .fact .card{opacity:1}
+  .fact{position:absolute;top:0;left:0;width:1080px;height:1920px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;z-index:2}
+  .fact .card{opacity:1;background:rgba(11,20,38,0.82);backdrop-filter:blur(2px)}
+  .bg{position:absolute;top:0;left:0;width:1080px;height:1920px;opacity:0;z-index:0}
+  .bg img{width:100%;height:100%;object-fit:cover;display:block}
 </style>
 </head>
 <body>
-  <div class="stage">
-    <div class="eyebrow" id="eyebrow" style="position:absolute;top:140px">الوقائع</div>
+  <div class="bg" id="bg1"><img src="images/flood_khenifra_1.jpg"></div>
+  <div class="bg" id="bg2"><img src="images/flood_ourika.jpg"></div>
+  <div class="bg" id="bg3"><img src="images/orange_sun.jpg"></div>
+  <div class="scrim"></div>
 
-    <div class="fact" id="f1">
-      <div class="card">
-        <div class="value">85%</div>
-        <div class="label">من سكان القصر الكبير أُخلوا</div>
-        <div class="date">فيضان نهر اللوكوس — فبراير 2026</div>
-      </div>
+  <div class="eyebrow" id="eyebrow" style="position:absolute;top:140px;left:0;width:1080px;text-align:center;z-index:3">الوقائع</div>
+
+  <div class="fact" id="f1">
+    <div class="card">
+      <div class="value">85%</div>
+      <div class="label">من سكان القصر الكبير أُخلوا</div>
+      <div class="date">فيضان نهر اللوكوس — فبراير 2026</div>
     </div>
+  </div>
 
-    <div class="fact" id="f2">
-      <div class="card">
-        <div class="value" style="color:var(--alert)">37</div>
-        <div class="label">قتيلاً في فيضانات آسفي</div>
-        <div class="date">بيان وزارة الداخلية — دجنبر 2025</div>
-      </div>
+  <div class="fact" id="f2">
+    <div class="card">
+      <div class="value" style="color:var(--alert)">37</div>
+      <div class="label">قتيلاً في فيضانات آسفي</div>
+      <div class="date">بيان وزارة الداخلية — دجنبر 2025</div>
     </div>
+  </div>
 
-    <div class="fact" id="f3">
-      <div class="card">
-        <div class="value">°42.5</div>
-        <div class="label">أعلى حرارة في تاريخ آسفي</div>
-        <div class="date">رقم قياسي جديد — ماي 2026</div>
-      </div>
+  <div class="fact" id="f3">
+    <div class="card">
+      <div class="value">°42.5</div>
+      <div class="label">أعلى حرارة في تاريخ آسفي</div>
+      <div class="date">رقم قياسي جديد — ماي 2026</div>
     </div>
   </div>
 <script>
@@ -48,11 +53,18 @@
   function setTime(t){
     document.getElementById('eyebrow').style.opacity = ease(clamp01(t/0.4));
     const ids = ['f1','f2','f3'];
+    const bgIds = ['bg1','bg2','bg3'];
     ids.forEach((id,i) => {
       const el = document.getElementById(id);
       const o = segOpacity(t, SEGS[i]);
       el.style.opacity = o;
       el.style.transform = 'scale(' + (0.97 + 0.03*o) + ')';
+
+      const bg = document.getElementById(bgIds[i]);
+      bg.style.opacity = o;
+      const [a,b] = SEGS[i];
+      const p = clamp01((t-a)/(b-a));
+      bg.querySelector('img').style.transform = 'scale(' + (1.0 + 0.05*p) + ')';
     });
   }
   window.__setTime = setTime;
