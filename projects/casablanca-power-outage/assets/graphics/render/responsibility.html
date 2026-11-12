@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  .chips{display:flex;flex-direction:column;gap:28px;margin:40px 0}
+  .chip{
+    border:1px solid rgba(192,199,209,0.35);border-radius:16px;padding:26px 40px;
+    opacity:0;background:rgba(11,20,38,0.88);text-align:center;
+  }
+  .chip .name{font-weight:700;font-size:38px;color:var(--fg)}
+  .chip .role{font-size:28px;color:var(--gold2);margin-top:8px}
+</style>
+</head>
+<body>
+  <div class="bg-wrap"><img id="bgimg" src="images/lydec_agency.jpg"></div>
+  <div class="scrim"></div>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">من المسؤول؟</div>
+    <div class="chips">
+      <div class="chip" id="c1">
+        <div class="name">المكتب الوطني للكهرباء والماء الصالح للشرب</div>
+        <div class="role">مسؤول عن شبكة النقل الوطنية</div>
+      </div>
+      <div class="chip" id="c2">
+        <div class="name">الشركة الجهوية متعددة الخدمات</div>
+        <div class="role">مسؤولة عن التوزيع داخل الجهة</div>
+      </div>
+    </div>
+    <div class="body-text" id="tail" style="font-size:34px">تعاونتا لإعادة التيار الكهربائي تدريجياً</div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
+    fadeUp(document.getElementById('c1'), t, 1.2, 0.6);
+    fadeUp(document.getElementById('c2'), t, 2.8, 0.6);
+    fadeUp(document.getElementById('tail'), t, 4.6, 0.6);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/15.816)) + ')';
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

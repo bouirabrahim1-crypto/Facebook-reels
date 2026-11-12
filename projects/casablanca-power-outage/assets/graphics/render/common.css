@@ -1,0 +1,39 @@
+@font-face { font-family: 'Montserrat'; font-weight: 700; src: url('fonts/Montserrat-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'Cairo'; font-weight: 400; src: url('fonts/Cairo-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'Cairo'; font-weight: 700; src: url('fonts/Cairo-Bold.ttf') format('truetype'); }
+
+:root{
+  --navy:#070D1A; --navy2:#0B1426; --fg:#E8ECF1; --muted:#C0C7D1;
+  --gold:#C9A54C; --gold2:#E6C77A; --silver:#C0C7D1; --silver2:#E8ECF1;
+  --alert:#E0392B;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:1080px;height:1920px;background:var(--navy);overflow:hidden}
+body{
+  font-family:'Cairo','Arial',sans-serif;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;
+}
+.bg-wrap{position:absolute;top:0;left:0;width:1080px;height:1920px;overflow:hidden;z-index:0}
+.bg-wrap img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.0);transform-origin:center center}
+.scrim{position:absolute;top:0;left:0;width:1080px;height:1920px;z-index:1;
+  background:
+    linear-gradient(180deg, rgba(7,13,26,0.72) 0%, rgba(7,13,26,0.6) 45%, rgba(7,13,26,0.82) 100%);
+}
+.stage{position:relative;z-index:2;width:1080px;height:1920px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px;text-align:center}
+.eyebrow{font-family:'Montserrat','Arial',sans-serif;font-weight:700;letter-spacing:4px;color:var(--gold);font-size:28px;text-transform:uppercase;opacity:0}
+.headline{font-weight:700;color:var(--fg);font-size:72px;line-height:1.35;opacity:0}
+.body-text{font-weight:400;color:var(--muted);font-size:44px;line-height:1.6;opacity:0}
+.ring-sm{width:90px;height:90px;border-radius:50%;border:2px solid var(--silver);opacity:0;display:flex;align-items:center;justify-content:center;margin-bottom:30px}
+.ring-sm .sy{font-family:'Montserrat','Arial',sans-serif;font-weight:700;font-size:48px}
+.ring-sm .s{color:var(--gold)}
+.ring-sm .y{color:var(--silver)}
+.rule{width:140px;height:4px;background:var(--gold);border-radius:2px;opacity:0;margin:30px 0}
+.card{
+  background:var(--navy2);border:1px solid rgba(192,199,209,0.2);border-radius:28px;
+  padding:60px 50px;display:flex;flex-direction:column;align-items:center;gap:18px;
+  width:880px;opacity:0;
+}
+.card .value{font-family:'Montserrat','Arial',sans-serif;font-weight:700;font-size:150px;color:var(--gold2)}
+.card .label{font-weight:700;font-size:44px;color:var(--fg)}
+.card .date{font-size:30px;color:var(--muted)}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+  <div class="bg-wrap"><img id="bgimg" src="images/storm_clouds.jpg"></div>
+  <div class="scrim"></div>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">ماذا وقع؟</div>
+    <div class="card" id="card" style="margin-top:30px">
+      <div class="label" style="font-size:34px;color:var(--muted)">الأربعاء 11 نونبر 2026</div>
+      <div class="value" style="font-size:120px">16:48</div>
+      <div class="label">عطب كهربائي ضرب عدة أحياء بالدار البيضاء</div>
+      <div class="date">السبب: هبات رياح قوية وعواصف رعدية</div>
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
+    fadeUp(document.getElementById('card'), t, 0.8, 0.7);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/15.408)) + ')';
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>
