@@ -1,0 +1,59 @@
+{
+  "project_id": "morocco-vegetable-export-ban",
+  "settings": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "narration_volume": 1.0,
+    "bgm_volume": 0.15
+  },
+  "scenes": [
+    {
+      "id": "brand_intro",
+      "footage": "../../templates/intro/intro.mp4",
+      "duration": 3.0
+    },
+    {
+      "id": "hook",
+      "footage": "assets/footage/hook.mp4",
+      "audio": "assets/voiceover/hook.mp3",
+      "narration": "ثمن الطماطم يرتفع في الأسواق المغربية... فتتخذ الحكومة خطوة غير متوقعة."
+    },
+    {
+      "id": "decision",
+      "footage": "assets/footage/decision.mp4",
+      "audio": "assets/voiceover/decision.mp3",
+      "narration": "يوم الخميس 12 نونبر 2026، علّقت الحكومة منح تراخيص جديدة لتصدير الطماطم والبصل والبطاطس."
+    },
+    {
+      "id": "reason",
+      "footage": "assets/footage/reason.mp4",
+      "audio": "assets/voiceover/reason.mp3",
+      "narration": "الهدف: حماية السوق الوطنية، وضمان توفر هذه المواد للمستهلك المغربي، في ظل ارتفاع الأسعار."
+    },
+    {
+      "id": "farmers",
+      "footage": "assets/footage/farmers.mp4",
+      "audio": "assets/voiceover/farmers.mp3",
+      "narration": "لكن القرار يثير تساؤلات حول مستقبل الفلاحين والمصدرين، والعلاقات التجارية مع الشركاء الأفارقة."
+    },
+    {
+      "id": "committee",
+      "footage": "assets/footage/committee.mp4",
+      "audio": "assets/voiceover/committee.mp3",
+      "narration": "الحكومة أحدثت أيضاً لجنة وزارية لتتبع الأسعار يومياً، ومواجهة المضاربة والاحتكار."
+    },
+    {
+      "id": "conclusion",
+      "footage": "assets/footage/conclusion.mp4",
+      "audio": "assets/voiceover/conclusion.mp3",
+      "narration": "فهل سينخفض سعر الطماطم في الأسواق؟ أم أن الأيام المقبلة ستحمل مفاجآت أخرى؟"
+    },
+    {
+      "id": "outro",
+      "footage": "../../templates/outro/outro.mp4",
+      "duration": 3.5
+    }
+  ],
+  "bgm": "assets/footage/bgm.mp3"
+}
