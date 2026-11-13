@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+  <div class="bg-wrap"><img id="bgimg" src="images/export_trucks.jpg"></div>
+  <div class="scrim"></div>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">المتابعة</div>
+    <div class="headline" id="headline" style="font-size:58px;margin-top:20px">
+      لجنة وزارية لتتبع الأسعار يومياً
+    </div>
+    <div class="body-text" id="tail" style="font-size:36px">ومواجهة المضاربة والاحتكار</div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
+    fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
+    fadeUp(document.getElementById('tail'), t, 2.0, 0.6);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/8.352)) + ')';
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>
