@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: 'Montserrat'; font-weight: 700; src: url('Montserrat-Bold.ttf') format('truetype'); }
+  html,body{margin:0;padding:0;width:1080px;height:1920px;background:#070D1A;overflow:hidden}
+  .stage{width:1080px;height:1920px;display:flex;align-items:center;justify-content:center;position:relative}
+  .ring{
+    width:260px;height:260px;border-radius:50%;border:3px solid #C0C7D1;
+    display:flex;align-items:center;justify-content:center;opacity:0;
+  }
+  .ring .sy{font-family:'Montserrat',Arial,sans-serif;font-weight:700;font-size:140px;display:flex}
+  .ring .s{color:#C9A54C}
+  .ring .y{color:#C0C7D1}
+  .flash{position:absolute;top:0;left:0;width:1080px;height:1920px;background:#E8ECF1;opacity:0}
+</style></head>
+<body>
+  <div class="stage">
+    <div class="ring" id="ring"><span class="sy"><span class="s">S</span><span class="y">Y</span></span></div>
+  </div>
+  <div class="flash" id="flash"></div>
+<script>
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  // 0.5s stinger: ring punches in with scale overshoot + brief white flash at impact, then fades for the cut
+  function setTime(t){
+    const ring = document.getElementById('ring');
+    const flash = document.getElementById('flash');
+    // ring scale: 0.4 -> 1.15 -> 1.0, opacity in fast then out fast
+    const inP = clamp01(t/0.12);
+    const settleP = clamp01((t-0.12)/0.1);
+    const scale = (0.4 + 0.75*inP) - (0.15*settleP);
+    const outP = clamp01((t-0.35)/0.15);
+    ring.style.transform = 'scale(' + scale + ')';
+    ring.style.opacity = Math.min(1, inP*3) * (1-outP);
+    // flash: quick spike right at impact (~0.12s)
+    const flashP = Math.max(0, 1 - Math.abs(t-0.12)/0.08);
+    flash.style.opacity = flashP * 0.85;
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

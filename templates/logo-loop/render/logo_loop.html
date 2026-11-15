@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: 'Montserrat'; font-weight: 700; src: url('Montserrat-Bold.ttf') format('truetype'); }
+  html,body{margin:0;padding:0;width:1080px;height:1080px;background:#070D1A;overflow:hidden}
+  .stage{width:1080px;height:1080px;display:flex;align-items:center;justify-content:center;position:relative}
+  .glow{
+    position:absolute;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle, rgba(201,165,76,0.35) 0%, rgba(201,165,76,0) 70%);
+  }
+  .ring{
+    width:380px;height:380px;border-radius:50%;border:4px solid #C0C7D1;
+    display:flex;align-items:center;justify-content:center;position:relative;
+  }
+  .ring .sy{font-family:'Montserrat',Arial,sans-serif;font-weight:700;font-size:190px;display:flex}
+  .ring .s{color:#C9A54C}
+  .ring .y{color:#C0C7D1}
+</style></head>
+<body>
+  <div class="stage">
+    <div class="glow" id="glow"></div>
+    <div class="ring" id="ring"><span class="sy"><span class="s">S</span><span class="y">Y</span></span></div>
+  </div>
+<script>
+  const DURATION = 2.5;
+  function setTime(t){
+    const phase = (t / DURATION) * Math.PI * 2;
+    const pulse = (Math.sin(phase) + 1) / 2; // 0..1, returns to 0 at loop point
+    const ring = document.getElementById('ring');
+    const glow = document.getElementById('glow');
+    ring.style.transform = 'scale(' + (1.0 + 0.03*pulse) + ')';
+    ring.style.borderColor = pulse > 0.5 ? '#E6C77A' : '#C0C7D1';
+    glow.style.opacity = 0.5 + 0.5*pulse;
+    glow.style.transform = 'scale(' + (0.9 + 0.15*pulse) + ')';
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

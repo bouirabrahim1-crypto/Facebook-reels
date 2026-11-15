@@ -1,0 +1,43 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: 'Cairo'; font-weight: 700; src: url('../../../outro/render/fonts/Cairo-Bold.ttf') format('truetype'); }
+  html,body{margin:0;padding:0;width:1080px;height:1920px;background:#070D1A;overflow:hidden;position:relative}
+  img{width:1080px;height:1920px;display:block;opacity:0;position:absolute;top:0;left:0}
+  .border{position:absolute;top:0;left:0;width:1080px;height:1920px;box-sizing:border-box;border:0px solid #E0392B;opacity:0;pointer-events:none}
+  .ribbon{
+    position:absolute;top:140px;left:0;width:100%;display:flex;justify-content:center;opacity:0;
+  }
+  .ribbon .badge{
+    background:#E0392B;color:#fff;font-family:'Cairo',Arial,sans-serif;font-weight:700;
+    font-size:34px;padding:12px 44px;border-radius:30px;letter-spacing:2px;
+  }
+</style></head>
+<body>
+  <img id="frame" src="../../intro_frame.png">
+  <div class="border" id="border"></div>
+  <div class="ribbon" id="ribbon"><span class="badge">عاجل</span></div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function setTime(t){
+    const img = document.getElementById('frame');
+    const border = document.getElementById('border');
+    const ribbon = document.getElementById('ribbon');
+    const fadeIn = ease(clamp01((t-0.1)/0.5));
+    const fadeOut = 1 - ease(clamp01((t-2.5)/0.5));
+    const base = Math.min(fadeIn, fadeOut);
+    img.style.opacity = base;
+
+    const pulse = (Math.sin(t * Math.PI * 3) + 1) / 2; // pulsing red glow
+    border.style.opacity = base * (0.5 + 0.5*pulse);
+    border.style.borderWidth = (10 + 6*pulse) + 'px';
+
+    const ribbonIn = ease(clamp01((t-0.3)/0.4));
+    ribbon.style.opacity = Math.min(ribbonIn, fadeOut);
+    ribbon.style.transform = 'translateY(' + (10 - 10*ribbonIn) + 'px)';
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>
