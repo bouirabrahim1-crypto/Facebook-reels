@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  .chips{display:flex;flex-direction:column;gap:24px;margin:40px 0}
+  .chip{
+    border:1px solid rgba(192,199,209,0.35);border-radius:16px;padding:22px 36px;
+    opacity:0;background:rgba(11,20,38,0.88);display:flex;justify-content:space-between;align-items:center;
+  }
+  .chip .name{font-weight:700;font-size:38px;color:var(--fg)}
+  .chip .num{font-family:'Montserrat','Arial',sans-serif;font-weight:700;font-size:44px;color:var(--gold2)}
+  .chip.me{border-color:var(--gold)}
+</style>
+</head>
+<body>
+  <div class="bg-wrap"><img id="bgimg" src="images/bounou_poster.jpg"></div>
+  <div class="scrim"></div>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">الترتيب التاريخي</div>
+    <div class="chips">
+      <div class="chip" id="c1"><span class="name">نور الدين النيبت</span><span class="num">115</span></div>
+      <div class="chip" id="c2"><span class="name">أشرف حكيمي</span><span class="num">+100</span></div>
+      <div class="chip me" id="c3"><span class="name">ياسين بونو</span><span class="num">100</span></div>
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
+    fadeUp(document.getElementById('c1'), t, 1.0, 0.5);
+    fadeUp(document.getElementById('c2'), t, 2.2, 0.5);
+    fadeUp(document.getElementById('c3'), t, 3.4, 0.5);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/14.184)) + ')';
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

@@ -1,0 +1,59 @@
+{
+  "project_id": "bounou-100-caps",
+  "settings": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "narration_volume": 1.0,
+    "bgm_volume": 0.15
+  },
+  "scenes": [
+    {
+      "id": "brand_intro",
+      "footage": "../../templates/intro/intro.mp4",
+      "duration": 3.0
+    },
+    {
+      "id": "hook",
+      "footage": "assets/footage/hook.mp4",
+      "audio": "assets/voiceover/hook.mp3",
+      "narration": "ياسين بونو... يصل إلى مباراته الدولية رقم 100 بقميص أسود الأطلس."
+    },
+    {
+      "id": "moment",
+      "footage": "assets/footage/moment.mp4",
+      "audio": "assets/voiceover/moment.mp3",
+      "narration": "الإنجاز جاء أمام منتخب النيجر، وشهد تصدياً حاسماً لضربة جزاء، والمغرب متقدم بهدفين لهدف."
+    },
+    {
+      "id": "ranking",
+      "footage": "assets/footage/ranking.mp4",
+      "audio": "assets/voiceover/ranking.mp3",
+      "narration": "بهذا الرقم، أصبح بونو ثالث أكثر اللاعبين مشاركة في تاريخ المنتخب المغربي، خلف نور الدين النيبت بـ115 مباراة، وأشرف حكيمي بأكثر من 100 مباراة."
+    },
+    {
+      "id": "legacy",
+      "footage": "assets/footage/legacy.mp4",
+      "audio": "assets/voiceover/legacy.mp3",
+      "narration": "من نصف نهائي مونديال قطر 2022، إلى بطولاته في كأس أمم أفريقيا، كتب بونو اسمه في ذاكرة الجماهير المغربية."
+    },
+    {
+      "id": "journey",
+      "footage": "assets/footage/journey.mp4",
+      "audio": "assets/voiceover/journey.mp3",
+      "narration": "من أول ظهور دولي سنة 2013، إلى المباراة المئوية سنة 2026... مسيرة من الثبات والتألق."
+    },
+    {
+      "id": "conclusion",
+      "footage": "assets/footage/conclusion.mp4",
+      "audio": "assets/voiceover/conclusion.mp3",
+      "narration": "فهل يتجاوز بونو رقم حكيمي، ويقترب من عرش النيبت؟"
+    },
+    {
+      "id": "outro",
+      "footage": "../../templates/outro/outro.mp4",
+      "duration": 3.5
+    }
+  ],
+  "bgm": "assets/footage/bgm.mp3"
+}
