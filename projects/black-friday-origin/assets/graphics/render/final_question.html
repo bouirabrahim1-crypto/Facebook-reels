@@ -1,17 +1,16 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
-<style>
-  body{background:radial-gradient(circle at 50% 30%, #0f1830 0%, var(--navy) 65%)}
-</style>
 </head>
 <body>
+  <div class="bg-wrap"><img id="bgimg" src="images/final_question.jpg"></div>
+  <div class="scrim"></div>
   <div class="stage">
     <div class="eyebrow" id="eyebrow">السؤال الحقيقي</div>
-    <div class="headline" id="headline" style="font-size:54px;margin-top:20px">
+    <div class="headline" id="headline" style="font-size:52px;margin-top:20px">
       فهل التخفيضات فرصة حقيقية للشراء…
     </div>
-    <div class="body-text" id="tail" style="font-size:40px;margin-top:20px;color:var(--gold2);font-weight:700">
+    <div class="body-text" id="tail" style="font-size:38px;margin-top:20px;color:var(--gold2);font-weight:700">
       أم طريقة ذكية لجعلنا نشتري ما لا نحتاج؟
     </div>
   </div>
@@ -27,6 +26,7 @@
     fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
     fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
     fadeUp(document.getElementById('tail'), t, 2.6, 0.6);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/8.64)) + ')';
   }
   window.__setTime = setTime;
   setTime(0);

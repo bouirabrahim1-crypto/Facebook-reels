@@ -1,19 +1,18 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
-<style>
-  body{background:radial-gradient(circle at 50% 30%, #0f1830 0%, var(--navy) 65%)}
-</style>
 </head>
 <body>
+  <div class="bg-wrap"><img id="bgimg" src="images/origin_jam.jpg"></div>
+  <div class="scrim"></div>
   <div class="stage">
     <div class="eyebrow" id="eyebrow">فيلادلفيا، الخمسينيات</div>
-    <div class="headline" id="headline" style="font-size:54px;margin-top:20px">
+    <div class="headline" id="headline" style="font-size:50px;margin-top:20px">
       القصة بدأت في فيلادلفيا الأمريكية…<br>
       حين غرقت الشوارع في الازدحام<br>
       يوم الجمعة بعد عيد الشكر
     </div>
-    <div class="body-text" id="tail" style="font-size:36px;margin-top:20px">
+    <div class="body-text" id="tail" style="font-size:34px;margin-top:20px">
       فأطلقت عليه الشرطة اسم <span style="color:var(--gold2);font-weight:700">«الجمعة السوداء»</span>
     </div>
   </div>
@@ -29,6 +28,7 @@
     fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
     fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
     fadeUp(document.getElementById('tail'), t, 2.8, 0.6);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/13.56)) + ')';
   }
   window.__setTime = setTime;
   setTime(0);

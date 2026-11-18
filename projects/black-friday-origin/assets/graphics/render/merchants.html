@@ -1,18 +1,17 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
-<style>
-  body{background:radial-gradient(circle at 50% 30%, #0f1830 0%, var(--navy) 65%)}
-</style>
 </head>
 <body>
+  <div class="bg-wrap"><img id="bgimg" src="images/hook.jpg"></div>
+  <div class="scrim"></div>
   <div class="stage">
     <div class="eyebrow" id="eyebrow">محاولة فاشلة</div>
-    <div class="headline" id="headline" style="font-size:58px;margin-top:20px">
+    <div class="headline" id="headline" style="font-size:56px;margin-top:20px">
       حاول التجار تغيير الاسم إلى<br>
       <span style="color:var(--gold2)">«الجمعة الكبيرة»</span>
     </div>
-    <div class="body-text" id="tail" style="font-size:38px;margin-top:20px">
+    <div class="body-text" id="tail" style="font-size:36px;margin-top:20px">
       لكن المحاولة فشلت، واستمر الاسم الأصلي
     </div>
   </div>
@@ -28,6 +27,7 @@
     fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
     fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
     fadeUp(document.getElementById('tail'), t, 2.2, 0.6);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.05 - 0.05*clamp01(t/8.352)) + ')';
   }
   window.__setTime = setTime;
   setTime(0);

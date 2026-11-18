@@ -1,14 +1,13 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
-<style>
-  body{background:radial-gradient(circle at 50% 30%, #0f1830 0%, var(--navy) 65%)}
-</style>
 </head>
 <body>
+  <div class="bg-wrap"><img id="bgimg" src="images/hook.jpg"></div>
+  <div class="scrim"></div>
   <div class="stage">
     <div class="eyebrow" id="eyebrow">هل تعلم؟</div>
-    <div class="headline" id="headline" style="font-size:62px;margin-top:20px">
+    <div class="headline" id="headline" style="font-size:58px;margin-top:20px">
       الجمعة السوداء لم تبدأ بالتخفيضات…<br>
       <span style="color:var(--gold2)">بل بالفوضى والازدحام</span>
     </div>
@@ -24,6 +23,7 @@
   function setTime(t){
     fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
     fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/7.152)) + ')';
   }
   window.__setTime = setTime;
   setTime(0);
