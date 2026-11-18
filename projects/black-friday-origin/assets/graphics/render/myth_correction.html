@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  body{background:radial-gradient(circle at 50% 30%, #1a0f0f 0%, var(--navy) 65%)}
+  .mark{
+    width:110px;height:110px;border-radius:50%;border:4px solid var(--alert);
+    display:flex;align-items:center;justify-content:center;margin-bottom:30px;opacity:0;
+    font-family:'Montserrat','Arial',sans-serif;font-weight:700;font-size:64px;color:var(--alert);
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="mark" id="mark">!</div>
+    <div class="eyebrow" id="eyebrow" style="color:var(--alert)">تصحيح معلومة</div>
+    <div class="headline" id="headline" style="font-size:50px;margin-top:20px">
+      ربط الجمعة السوداء ببيع العبيد
+    </div>
+    <div class="body-text" id="tail" style="font-size:38px;margin-top:20px;color:var(--fg)">
+      معلومة <span style="color:var(--alert);font-weight:700">كاذبة</span> لا أساس لها تاريخياً
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('mark'), t, 0.1, 0.4);
+    fadeUp(document.getElementById('eyebrow'), t, 0.4, 0.5);
+    fadeUp(document.getElementById('headline'), t, 1.0, 0.7);
+    fadeUp(document.getElementById('tail'), t, 2.4, 0.6);
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  body{background:radial-gradient(circle at 50% 30%, #0f1830 0%, var(--navy) 65%)}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">هل تعلم؟</div>
+    <div class="headline" id="headline" style="font-size:62px;margin-top:20px">
+      الجمعة السوداء لم تبدأ بالتخفيضات…<br>
+      <span style="color:var(--gold2)">بل بالفوضى والازدحام</span>
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
+    fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

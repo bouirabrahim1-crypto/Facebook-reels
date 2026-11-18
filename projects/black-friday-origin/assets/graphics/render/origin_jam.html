@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  body{background:radial-gradient(circle at 50% 30%, #0f1830 0%, var(--navy) 65%)}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">فيلادلفيا، الخمسينيات</div>
+    <div class="headline" id="headline" style="font-size:54px;margin-top:20px">
+      القصة بدأت في فيلادلفيا الأمريكية…<br>
+      حين غرقت الشوارع في الازدحام<br>
+      يوم الجمعة بعد عيد الشكر
+    </div>
+    <div class="body-text" id="tail" style="font-size:36px;margin-top:20px">
+      فأطلقت عليه الشرطة اسم <span style="color:var(--gold2);font-weight:700">«الجمعة السوداء»</span>
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
+    fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
+    fadeUp(document.getElementById('tail'), t, 2.8, 0.6);
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

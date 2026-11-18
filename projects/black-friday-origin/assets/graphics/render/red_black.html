@@ -1,0 +1,46 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  body{background:radial-gradient(circle at 50% 30%, #0f1830 0%, var(--navy) 65%)}
+  .ledger{
+    display:flex;gap:30px;margin:30px 0;
+  }
+  .swatch{width:70px;height:70px;border-radius:14px;opacity:0}
+  .swatch.red{background:#B23A2E}
+  .swatch.black{background:#111418;border:2px solid rgba(192,199,209,0.3)}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">الأحمر والأسود</div>
+    <div class="ledger">
+      <div class="swatch red" id="sw-red"></div>
+      <div class="swatch black" id="sw-black"></div>
+    </div>
+    <div class="headline" id="headline" style="font-size:52px;margin-top:10px">
+      لاحقاً، ربط التجار الاسم بالأرباح
+    </div>
+    <div class="body-text" id="tail" style="font-size:36px;margin-top:20px">
+      <span style="color:#E07A6E">الأحمر</span> للخسائر، و<span style="color:var(--gold2)">الأسود</span> للأرباح
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
+    fadeUp(document.getElementById('sw-red'), t, 0.7, 0.5);
+    fadeUp(document.getElementById('sw-black'), t, 1.1, 0.5);
+    fadeUp(document.getElementById('headline'), t, 1.6, 0.7);
+    fadeUp(document.getElementById('tail'), t, 2.6, 0.6);
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>
