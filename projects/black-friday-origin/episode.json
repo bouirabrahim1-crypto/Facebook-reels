@@ -1,5 +1,5 @@
 {
-  "project_id": "{{project-slug}}",
+  "project_id": "black-friday-origin",
   "settings": {
     "width": 1080,
     "height": 1920,
@@ -16,38 +16,44 @@
     {
       "id": "hook",
       "footage": "assets/footage/hook.mp4",
-      "audio": "assets/voiceover/hook.wav",
-      "narration": "{{HOOK}}"
+      "audio": "assets/voiceover/hook.mp3",
+      "narration": "هل تعلم أن الجمعة السوداء لم تبدأ بالتخفيضات… بل بالفوضى والازدحام؟"
     },
     {
-      "id": "intro",
-      "footage": "assets/footage/intro.mp4",
-      "audio": "assets/voiceover/intro.wav",
-      "narration": "{{INTRO}}"
+      "id": "origin_jam",
+      "footage": "assets/footage/origin_jam.mp4",
+      "audio": "assets/voiceover/origin_jam.mp3",
+      "narration": "القصة بدأت في فيلادلفيا الأمريكية، خلال الخمسينيات، حين غرقت الشوارع في الازدحام يوم الجمعة بعد عيد الشكر، فأطلقت عليه الشرطة اسم «الجمعة السوداء»."
     },
     {
-      "id": "context",
-      "footage": "assets/footage/context.mp4",
-      "audio": "assets/voiceover/context.wav",
-      "narration": "{{CONTEXT}}"
+      "id": "merchants",
+      "footage": "assets/footage/merchants.mp4",
+      "audio": "assets/voiceover/merchants.mp3",
+      "narration": "حاول التجار تغيير الاسم إلى «الجمعة الكبيرة»، لكن المحاولة فشلت، واستمر الاسم الأصلي."
     },
     {
-      "id": "facts",
-      "footage": "assets/footage/facts.mp4",
-      "audio": "assets/voiceover/facts.wav",
-      "narration": "{{FACTS}}"
+      "id": "red_black",
+      "footage": "assets/footage/red_black.mp4",
+      "audio": "assets/voiceover/red_black.mp3",
+      "narration": "لاحقاً، ربط التجار الاسم بالأرباح؛ إذ كان المحاسبون يستخدمون الأحمر للخسائر، والأسود للأرباح."
     },
     {
-      "id": "analysis",
-      "footage": "assets/footage/analysis.mp4",
-      "audio": "assets/voiceover/analysis.wav",
-      "narration": "{{ANALYSIS}}"
+      "id": "global_spread",
+      "footage": "assets/footage/global_spread.mp4",
+      "audio": "assets/voiceover/global_spread.mp3",
+      "narration": "ومع الوقت، تحولت الجمعة السوداء إلى ظاهرة عالمية، وانتقلت المنافسة من المتاجر إلى الإنترنت."
     },
     {
-      "id": "conclusion",
-      "footage": "assets/footage/conclusion.mp4",
-      "audio": "assets/voiceover/conclusion.wav",
-      "narration": "{{CONCLUSION}}"
+      "id": "myth_correction",
+      "footage": "assets/footage/myth_correction.mp4",
+      "audio": "assets/voiceover/myth_correction.mp3",
+      "narration": "لكن انتبه: ربط الجمعة السوداء ببيع العبيد معلومة كاذبة لا أساس لها تاريخياً."
+    },
+    {
+      "id": "final_question",
+      "footage": "assets/footage/final_question.mp4",
+      "audio": "assets/voiceover/final_question.mp3",
+      "narration": "فهل التخفيضات فرصة حقيقية للشراء… أم طريقة ذكية لجعلنا نشتري ما لا نحتاج؟"
     },
     {
       "id": "outro",
