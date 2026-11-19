@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  body{background:radial-gradient(circle at 50% 25%, #2a1240 0%, #150a2e 35%, var(--navy) 70%)}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow" style="color:#E6A4D8">19 نونبر 2026</div>
+    <div class="headline" id="headline" style="font-size:52px;margin-top:20px">
+      انتهى الانتظار أخيراً…<br>
+      عادت Rockstar إلى<br>
+      <span style="color:var(--gold2)">مدينة Vice City</span>
+    </div>
+    <div class="body-text" id="tail" style="font-size:36px;margin-top:20px">
+      المستوحاة من ميامي، بعالم أكبر وأكثر تفصيلاً
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
+    fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
+    fadeUp(document.getElementById('tail'), t, 2.8, 0.6);
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

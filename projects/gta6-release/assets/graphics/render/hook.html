@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  .frame{
+    width:820px;height:560px;border-radius:28px;background:#0A0A0C;
+    border:1px solid rgba(192,199,209,0.2);display:flex;align-items:center;justify-content:center;
+    overflow:hidden;opacity:0;margin-bottom:40px;
+  }
+  .frame img{width:100%;height:100%;object-fit:contain;padding:20px}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">هل تعلم؟</div>
+    <div class="frame" id="frame"><img src="images/hook.png"></div>
+    <div class="headline" id="headline" style="font-size:52px">
+      لعبة واحدة جعلت ملايين الأشخاص<br>
+      <span style="color:var(--gold2)">ينتظرون أكثر من 13 سنة</span>
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
+    fadeUp(document.getElementById('frame'), t, 0.6, 0.6);
+    fadeUp(document.getElementById('headline'), t, 1.4, 0.7);
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>
