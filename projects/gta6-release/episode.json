@@ -1,0 +1,59 @@
+{
+  "project_id": "gta6-release",
+  "settings": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "narration_volume": 1.0,
+    "bgm_volume": 0.15
+  },
+  "scenes": [
+    {
+      "id": "brand_intro",
+      "footage": "../../templates/intro/intro.mp4",
+      "duration": 3.0
+    },
+    {
+      "id": "hook",
+      "footage": "assets/footage/hook.mp4",
+      "audio": "assets/voiceover/hook.mp3",
+      "narration": "هل تصدق أن لعبة واحدة جعلت ملايين الأشخاص ينتظرون أكثر من 13 سنة؟"
+    },
+    {
+      "id": "phenomenon",
+      "footage": "assets/footage/phenomenon.mp4",
+      "audio": "assets/voiceover/phenomenon.mp3",
+      "narration": "إنها GTA 6، اللعبة التي تحوّل انتظارها إلى ظاهرة عالمية، حتى أصبحت عبارة «قبل صدور GTA 6» من أشهر النكات على الإنترنت."
+    },
+    {
+      "id": "release_day",
+      "footage": "assets/footage/release_day.mp4",
+      "audio": "assets/voiceover/release_day.mp3",
+      "narration": "اليوم، التاسع عشر من نونبر 2026، انتهى الانتظار أخيراً، وعادت Rockstar إلى مدينة Vice City المستوحاة من ميامي، بعالم أكبر وأكثر تفصيلاً."
+    },
+    {
+      "id": "story",
+      "footage": "assets/footage/story.mp4",
+      "audio": "assets/voiceover/story.mp3",
+      "narration": "القصة تدور حول جيسون ولوسيا، شخصيتين يجدان نفسيهما وسط عالم الجريمة والمؤامرات والمطاردات، حيث لا تبدو الثقة بينهما سهلة."
+    },
+    {
+      "id": "more_than_game",
+      "footage": "assets/footage/more_than_game.mp4",
+      "audio": "assets/voiceover/more_than_game.mp3",
+      "narration": "لكن المثير للاهتمام أن GTA 6 ليست مجرد لعبة سيارات وإطلاق نار؛ إنها محاولة لصناعة عالم تشعر فيه أن كل شارع وكل شخصية له حياة خاصة."
+    },
+    {
+      "id": "final_question",
+      "footage": "assets/footage/final_question.mp4",
+      "audio": "assets/voiceover/final_question.mp3",
+      "narration": "فالسؤال الحقيقي الآن ليس متى ستصدر اللعبة، بل: هل ستنجح في تحقيق كل التوقعات التي بناها الناس خلال 13 سنة؟ أم أن الانتظار الطويل جعل سقف التوقعات أعلى من أي لعبة تستطيع الوصول إليه؟"
+    },
+    {
+      "id": "outro",
+      "footage": "../../templates/outro/outro.mp4",
+      "duration": 3.5
+    }
+  ],
+  "bgm": "assets/footage/bgm.mp3"
+}
