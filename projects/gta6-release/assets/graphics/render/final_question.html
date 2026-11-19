@@ -1,19 +1,18 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
-<style>
-  body{background:radial-gradient(circle at 50% 30%, #0f1830 0%, var(--navy) 65%)}
-</style>
 </head>
 <body>
+  <div class="bg-wrap"><img id="bgimg" src="images/final_question_photo.jpg"></div>
+  <div class="scrim"></div>
   <div class="stage">
     <div class="eyebrow" id="eyebrow">السؤال الحقيقي</div>
-    <div class="headline" id="headline" style="font-size:48px;margin-top:20px">
+    <div class="headline" id="headline" style="font-size:46px;margin-top:20px">
       ليس: متى ستصدر اللعبة؟<br>
       بل: هل ستنجح في تحقيق<br>
       <span style="color:var(--gold2)">كل التوقعات خلال 13 سنة؟</span>
     </div>
-    <div class="body-text" id="tail" style="font-size:34px;margin-top:20px">
+    <div class="body-text" id="tail" style="font-size:32px;margin-top:20px">
       أم أن الانتظار الطويل رفع السقف أعلى من أي لعبة؟
     </div>
   </div>
@@ -29,6 +28,7 @@
     fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
     fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
     fadeUp(document.getElementById('tail'), t, 3.2, 0.6);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/16.968)) + ')';
   }
   window.__setTime = setTime;
   setTime(0);

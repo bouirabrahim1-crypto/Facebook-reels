@@ -1,20 +1,13 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
-<style>
-  .frame{
-    width:820px;height:600px;border-radius:28px;background:#0d0d10;
-    border:1px solid rgba(192,199,209,0.2);display:flex;align-items:center;justify-content:center;
-    overflow:hidden;opacity:0;margin-bottom:40px;
-  }
-  .frame img{width:100%;height:100%;object-fit:contain;padding:16px}
-</style>
 </head>
 <body>
+  <div class="bg-wrap"><img id="bgimg" src="images/phenomenon_photo.jpg"></div>
+  <div class="scrim"></div>
   <div class="stage">
     <div class="eyebrow" id="eyebrow">ظاهرة عالمية</div>
-    <div class="frame" id="frame"><img src="images/phenomenon.png"></div>
-    <div class="headline" id="headline" style="font-size:48px">
+    <div class="headline" id="headline" style="font-size:48px;margin-top:20px">
       «قبل صدور <span style="color:var(--gold2)">GTA 6</span>»<br>
       أصبحت من أشهر النكات على الإنترنت
     </div>
@@ -29,8 +22,8 @@
   }
   function setTime(t){
     fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
-    fadeUp(document.getElementById('frame'), t, 0.6, 0.6);
-    fadeUp(document.getElementById('headline'), t, 1.4, 0.7);
+    fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/11.712)) + ')';
   }
   window.__setTime = setTime;
   setTime(0);

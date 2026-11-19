@@ -1,20 +1,13 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
-<style>
-  .frame{
-    width:820px;height:560px;border-radius:28px;background:#0A0A0C;
-    border:1px solid rgba(192,199,209,0.2);display:flex;align-items:center;justify-content:center;
-    overflow:hidden;opacity:0;margin-bottom:40px;
-  }
-  .frame img{width:100%;height:100%;object-fit:contain;padding:20px}
-</style>
 </head>
 <body>
+  <div class="bg-wrap"><img id="bgimg" src="images/hook_photo.jpg"></div>
+  <div class="scrim"></div>
   <div class="stage">
     <div class="eyebrow" id="eyebrow">هل تعلم؟</div>
-    <div class="frame" id="frame"><img src="images/hook.png"></div>
-    <div class="headline" id="headline" style="font-size:52px">
+    <div class="headline" id="headline" style="font-size:52px;margin-top:20px">
       لعبة واحدة جعلت ملايين الأشخاص<br>
       <span style="color:var(--gold2)">ينتظرون أكثر من 13 سنة</span>
     </div>
@@ -29,8 +22,8 @@
   }
   function setTime(t){
     fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
-    fadeUp(document.getElementById('frame'), t, 0.6, 0.6);
-    fadeUp(document.getElementById('headline'), t, 1.4, 0.7);
+    fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/7.032)) + ')';
   }
   window.__setTime = setTime;
   setTime(0);

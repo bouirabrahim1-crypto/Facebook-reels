@@ -1,19 +1,18 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
-<style>
-  body{background:radial-gradient(circle at 50% 25%, #2a1240 0%, #150a2e 35%, var(--navy) 70%)}
-</style>
 </head>
 <body>
+  <div class="bg-wrap"><img id="bgimg" src="images/release_day_photo.jpg"></div>
+  <div class="scrim"></div>
   <div class="stage">
     <div class="eyebrow" id="eyebrow" style="color:#E6A4D8">19 نونبر 2026</div>
-    <div class="headline" id="headline" style="font-size:52px;margin-top:20px">
+    <div class="headline" id="headline" style="font-size:50px;margin-top:20px">
       انتهى الانتظار أخيراً…<br>
       عادت Rockstar إلى<br>
       <span style="color:var(--gold2)">مدينة Vice City</span>
     </div>
-    <div class="body-text" id="tail" style="font-size:36px;margin-top:20px">
+    <div class="body-text" id="tail" style="font-size:34px;margin-top:20px">
       المستوحاة من ميامي، بعالم أكبر وأكثر تفصيلاً
     </div>
   </div>
@@ -29,6 +28,7 @@
     fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
     fadeUp(document.getElementById('headline'), t, 0.8, 0.7);
     fadeUp(document.getElementById('tail'), t, 2.8, 0.6);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/13.8)) + ')';
   }
   window.__setTime = setTime;
   setTime(0);
