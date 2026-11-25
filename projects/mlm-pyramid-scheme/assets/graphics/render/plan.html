@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+  <div class="bg-wrap"><img id="bgimg" src="images/118878.jpg"></div>
+  <div class="scrim"></div>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">الخطة</div>
+    <div class="headline" id="headline" style="font-size:44px;margin-top:20px">
+      شركة مسجلة برأسمال رمزي ديال<br>
+      <span style="color:var(--gold2)">50.000 درهم</span>...
+    </div>
+    <div class="body-text" id="tail" style="font-size:34px;margin-top:20px">
+      كتوعدك بمتجر إلكتروني ومرابيح خيالية<br>
+      غير تخلص ما بين <span style="color:var(--gold2);font-weight:700">3.000 و5.000 درهم</span>
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
+    fadeUp(document.getElementById('headline'), t, 0.7, 0.6);
+    fadeUp(document.getElementById('tail'), t, 4.5, 0.6);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/12.826)) + ')';
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>

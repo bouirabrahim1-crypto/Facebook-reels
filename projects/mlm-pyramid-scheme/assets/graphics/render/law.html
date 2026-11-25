@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  .stat-card{
+    background:rgba(7,13,26,0.82);border:1px solid rgba(192,199,209,0.25);border-radius:24px;
+    padding:30px 40px;display:flex;flex-direction:column;align-items:center;gap:8px;
+    width:820px;opacity:0;margin-top:30px;
+  }
+  .stat-row{display:flex;justify-content:space-around;width:100%}
+  .stat-num{font-family:'Montserrat',Arial,sans-serif;font-weight:700;font-size:58px;color:var(--gold2)}
+  .stat-lbl{font-size:26px;color:var(--silver);margin-top:2px}
+</style>
+</head>
+<body>
+  <div class="bg-wrap"><img id="bgimg" src="images/118869.jpg"></div>
+  <div class="scrim"></div>
+  <div class="stage">
+    <div class="eyebrow" id="eyebrow">القانون</div>
+    <div class="headline" id="headline" style="font-size:44px;margin-top:20px">
+      القانون المغربي واضح: <span style="color:var(--gold2)">المادة 58</span><br>
+      من قانون حماية المستهلك كتمنع البيع الهرمي
+    </div>
+    <div class="stat-card" id="statcard">
+      <div class="stat-row">
+        <div><div class="stat-num">182</div><div class="stat-lbl">ملف مسجل</div></div>
+        <div><div class="stat-num">137</div><div class="stat-lbl">مشتبه به</div></div>
+      </div>
+      <div class="stat-lbl" style="margin-top:10px">العقوبة: الحبس + غرامة تصل لـ40.000 درهم</div>
+    </div>
+  </div>
+<script>
+  function ease(x){ return 1 - Math.pow(1-x,3); }
+  function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+  function fadeUp(el, t, start, dur){
+    const p = ease(clamp01((t-start)/dur));
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (14 - 14*p) + 'px)';
+  }
+  function setTime(t){
+    fadeUp(document.getElementById('eyebrow'), t, 0.2, 0.5);
+    fadeUp(document.getElementById('headline'), t, 0.7, 0.6);
+    fadeUp(document.getElementById('statcard'), t, 3.0, 0.6);
+    document.getElementById('bgimg').style.transform = 'scale(' + (1.0 + 0.05*clamp01(t/6.034)) + ')';
+  }
+  window.__setTime = setTime;
+  setTime(0);
+</script>
+</body></html>
